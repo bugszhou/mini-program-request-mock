@@ -1,6 +1,6 @@
 const requestMap: any = {};
 
-export class Request {
+export default class Request {
   private reqData: any = null;
   private resData: any = null;
   private errData: any = null;
