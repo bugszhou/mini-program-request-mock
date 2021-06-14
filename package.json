@@ -1,6 +1,6 @@
 {
   "name": "mini-program-request-mock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "mini program request jest mock",
   "main": "dist/request-mock.min.js",
   "module": "dist/request-mock.es.js",
