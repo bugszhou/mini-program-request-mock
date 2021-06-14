@@ -1,9 +1,12 @@
 var requestMap = {};
 var RequestMock = /** @class */ (function () {
-    function RequestMock() {
+    function RequestMock(reqData) {
         this.reqData = null;
         this.resData = null;
         this.errData = null;
+        if (reqData) {
+            this.get(reqData);
+        }
     }
     RequestMock.prototype.get = function (reqData) {
         this.reqData = reqData;

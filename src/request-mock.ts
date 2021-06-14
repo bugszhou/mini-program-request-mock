@@ -5,6 +5,12 @@ export default class RequestMock {
   private resData: any = null;
   private errData: any = null;
 
+  constructor(reqData?: any) {
+    if (reqData) {
+      this.get(reqData);
+    }
+  }
+
   get(reqData: any) {
     this.reqData = reqData;
     requestMap[JSON.stringify(this.reqData)] = this;
