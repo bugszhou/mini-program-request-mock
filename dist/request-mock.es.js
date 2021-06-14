@@ -1,33 +1,33 @@
 var requestMap = {};
-var Request = /** @class */ (function () {
-    function Request() {
+var RequestMock = /** @class */ (function () {
+    function RequestMock() {
         this.reqData = null;
         this.resData = null;
         this.errData = null;
     }
-    Request.prototype.get = function (reqData) {
+    RequestMock.prototype.get = function (reqData) {
         this.reqData = reqData;
         requestMap[JSON.stringify(this.reqData)] = this;
         return this;
     };
-    Request.prototype.getErrData = function () {
+    RequestMock.prototype.getErrData = function () {
         return this.errData;
     };
-    Request.prototype.getReqData = function () {
+    RequestMock.prototype.getReqData = function () {
         return this.reqData;
     };
-    Request.prototype.getResData = function () {
+    RequestMock.prototype.getResData = function () {
         return this.resData;
     };
-    Request.prototype.success = function (resData) {
+    RequestMock.prototype.success = function (resData) {
         this.resData = resData;
         return this;
     };
-    Request.prototype.fail = function (errData) {
+    RequestMock.prototype.fail = function (errData) {
         this.errData = errData;
         return this;
     };
-    return Request;
+    return RequestMock;
 }());
 global.wx.request = jest.fn().mockImplementation(function (reqData) {
     var mockObj = requestMap[JSON.stringify(reqData)];
@@ -37,5 +37,5 @@ global.wx.request = jest.fn().mockImplementation(function (reqData) {
     return reqData.success(mockObj.getResData());
 });
 
-export { Request };
+export default RequestMock;
 //# sourceMappingURL=request-mock.es.js.map

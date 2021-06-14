@@ -1,6 +1,6 @@
 const requestMap: any = {};
 
-export default class Request {
+export default class RequestMock {
   private reqData: any = null;
   private resData: any = null;
   private errData: any = null;

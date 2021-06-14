@@ -1,13 +1,13 @@
-declare global {
-  namespace NodeJS {
-    interface Global {
-      wx: {
-        request: jest.Mock;
-      };
-    }
-  }
+declare class RequestMock {
+  private reqData;
+  private resData;
+  private errData;
+  get(reqData: any): this;
+  getErrData(): any;
+  getReqData(): any;
+  getResData(): any;
+  success(resData: any): this;
+  fail(errData: any): this;
 }
 
-declare const wx: NodeJS.Global["wx"];
-
-export {};
+export default RequestMock;

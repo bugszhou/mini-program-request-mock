@@ -1,4 +1,4 @@
-export declare class Request {
+export default class RequestMock {
     private reqData;
     private resData;
     private errData;
